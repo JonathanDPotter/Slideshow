@@ -1,0 +1,182 @@
+$light-head-foot: rgb(204, 204, 204);
+$light-side: rgb(196, 200, 201);
+$light-target: rgb(208, 210, 207);
+$light-color: rgb(16, 16, 16);
+$dark-head-foot: rgb(45, 46, 50);
+$dark-side: rgb(81, 81, 81);
+$dark-target: rgb(16, 16, 16);
+$dark-color: rgb(204, 204, 204);
+$blue-head-foot: rgb(133, 211, 224);
+$blue-side: rgb(103, 200, 207);
+$blue-target: rgb(198, 232, 233);
+$blue-color: rgb(11, 52, 84);
+$pink-head-foot: rgb(247, 92, 150);
+$pink-side: rgb(235, 160, 175);
+$pink-target: rgb(239, 195, 195);
+$pink-color: rgb(94, 21, 63);
+
+* {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar target"
+    "footer footer";
+  grid-template-rows: 20vh 60vh 20vh;
+  grid-template-columns: 30vw 70vw;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1rem;
+}
+
+header,
+footer {
+  &.light {
+    color: $light-color;
+    background-color: $light-head-foot;
+  }
+  &.dark {
+    color: $dark-color;
+    background-color: $dark-head-foot;
+  }
+  &.blue {
+    color: $blue-color;
+    background-color: $blue-head-foot;
+  }
+
+  &.pink {
+    color: $pink-color;
+    background-color: $pink-head-foot;
+  }
+  ul {
+    width: 20vw;
+    list-style-type: none;
+
+    .light {
+      color: $light-color;
+      background-color: $light-head-foot;
+    }
+    .dark {
+      color: $dark-color;
+      background-color: $dark-head-foot;
+    }
+    .blue {
+      color: $blue-color;
+      background-color: $blue-head-foot;
+    }
+
+    .pink {
+      color: $pink-color;
+      background-color: $pink-head-foot;
+    }
+  }
+}
+
+.head {
+  grid-area: header;
+}
+
+#sidebar {
+  margin: 0;
+  height: 100%;
+  grid-area: sidebar;
+
+  &.light {
+    color: $light-color;
+    background-color: $light-side;
+  }
+  &.dark {
+    color: $dark-color;
+    background-color: $dark-side;
+  }
+  &.blue {
+    color: $blue-color;
+    background-color: $blue-side;
+  }
+
+  &.pink {
+    color: $pink-color;
+    background-color: $pink-side;
+  }
+}
+
+#target {
+  grid-area: target;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  &.light {
+    color: $light-color;
+    background-color: $light-target;
+  }
+  &.dark {
+    color: $dark-color;
+    background-color: $dark-target;
+  }
+  &.blue {
+    color: $blue-color;
+    background-color: $blue-target;
+  }
+
+  &.pink {
+    color: $pink-color;
+    background-color: $pink-target;
+  }
+}
+
+.foot {
+  grid-area: footer;
+}
+
+.rainbow {
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(
+    left,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  ) !important; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(
+    right,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  ) !important; /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(
+    right,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  ) !important; /* For Firefox 3.6 to 15 */
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  ) !important; /* Standard syntax (must be last) */
+  color: white !important;
+}
