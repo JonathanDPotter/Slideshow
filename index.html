@@ -4,33 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dropdowns</title>
+    <title>Dynamic Dropdowns</title>
     <script defer src="bundle.js"></script>
   </head>
-  <body class="rainbow-text">
-    <header class="head">
-      <h1 id="title">Dynamic Dropdowns</h1>
-      <h4>Theme</h4>
+  <body>
+    <header class="head themed">
+      <h3 id="title">Dynamic Dropdowns</h3>
+      <h4 id="theme-drop">Theme</h4>
       <ul id="themes">
-        <li class="theme light">light</li>
-        <li class="theme dark">dark</li>
-        <li class="theme blue">blue</li>
-        <li class="theme pink">pink</li>
-        <li class="theme rainbow">rainbow</li>
+        <li class="theme light" data-theme="light">light</li>
+        <li class="theme dark" data-theme="dark">dark</li>
+        <li class="theme blue" data-theme="blue">blue</li>
+        <li class="theme pink" data-theme="pink">pink</li>
+        <li class="theme rainbow" data-theme="rainbow">rainbow</li>
       </ul>
     </header>
-    <div id="middle">
-      <div id="sidebar">
-        <h4>View Images</h4>
-        <ul>
-          <li>thumbnails</li>
-          <li>vertical</li>
-          <li>horizontal</li>
-        </ul>
-      </div>
-      <div id="image"></div>
+
+    <div id="sidebar" class="side themed">
+      <h4>View Images</h4>
+      <ul>
+        <li>thumbnails</li>
+        <li>vertical</li>
+        <li>horizontal</li>
+      </ul>
     </div>
-    <footer class="foot">
+
+    <div id="target" class="target themed"></div>
+
+    <footer class="foot themed">
       <h4>Type of Image</h4>
       <ul id="types">
         <li>robots</li>
@@ -42,5 +43,4 @@
     </footer>
   </body>
   <template id="side-one"></template>
-
 </html>
