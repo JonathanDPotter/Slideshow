@@ -1,6 +1,6 @@
 $light-head-foot: rgb(204, 204, 204);
 $light-side: rgb(196, 200, 201);
-$light-target: rgb(208, 210, 207);
+$light-target: rgb(225, 225, 225);
 $light-color: rgb(16, 16, 16);
 $dark-head-foot: rgb(45, 46, 50);
 $dark-side: rgb(81, 81, 81);
@@ -17,25 +17,53 @@ $pink-color: rgb(94, 21, 63);
 
 * {
   margin: 0;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
 }
 
 body {
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   display: grid;
-  grid-template-areas:
-    "header header"
-    "sidebar target"
-    "footer footer";
-  grid-template-rows: 20vh 60vh 20vh;
-  grid-template-columns: 30vw 70vw;
+  display: flex;
+  flex-direction: column;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 1rem;
+
+  &.light {
+    color: $light-color;
+    background-color: $light-target;
+  }
+  &.dark {
+    color: $dark-color;
+    background-color: $dark-target;
+  }
+  &.blue {
+    color: $blue-color;
+    background-color: $blue-target;
+  }
+
+  &.pink {
+    color: $pink-color;
+    background-color: $pink-target;
+  }
+}
+
+.themed {
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
 header,
 footer {
+  overflow: hidden;
   &.light {
     color: $light-color;
     background-color: $light-head-foot;
@@ -53,10 +81,36 @@ footer {
     color: $pink-color;
     background-color: $pink-head-foot;
   }
-  ul {
-    width: 20vw;
-    list-style-type: none;
 
+  #theme-toggle {
+    display: none;
+    &:checked ~ ul {
+      height: 6rem;
+      opacity: 1;
+    }
+  }
+  #theme-toggle-label {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.head {
+  height: fit-content;
+
+  ul {
+    transition: all 500ms ease-in;
+    width: 20vw;
+    margin-left: 2rem;
+    padding: 0;
+    list-style-type: none;
+    height: 0;
+    opacity: 0;
+    font-size: 0.7rem;
+    &:hover {
+      cursor: pointer;
+    }
     .light {
       color: $light-color;
       background-color: $light-head-foot;
@@ -77,14 +131,30 @@ footer {
   }
 }
 
-.head {
-  grid-area: header;
+#middle {
+  height:100%;
+  display: flex;
 }
 
 #sidebar {
-  margin: 0;
-  height: 100%;
-  grid-area: sidebar;
+  width: 1vw;
+  height: min-content;
+  overflow:hidden;
+  transition: width 500ms linear;
+  h4,ul {
+    transition: opacity 700ms ease-in;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+  }
+  
+  &:hover {
+    width: 6.5rem;
+
+    h4,ul {
+      opacity: 1;
+    }
+  }
 
   &.light {
     color: $light-color;
@@ -106,34 +176,35 @@ footer {
 }
 
 #target {
-  grid-area: target;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
-
-  &.light {
-    color: $light-color;
-    background-color: $light-target;
-  }
-  &.dark {
-    color: $dark-color;
-    background-color: $dark-target;
-  }
-  &.blue {
-    color: $blue-color;
-    background-color: $blue-target;
-  }
-
-  &.pink {
-    color: $pink-color;
-    background-color: $pink-target;
-  }
 }
 
 .foot {
-  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+
+  ul {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+  .underlined {
+    text-decoration: underline;
+}
+
+
+
 }
 
 .rainbow {
@@ -178,5 +249,4 @@ footer {
     blue,
     violet
   ) !important; /* Standard syntax (must be last) */
-  color: white !important;
 }
