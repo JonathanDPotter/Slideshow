@@ -1,19 +1,10 @@
 import "./style.scss";
-
+import {setTheme} from "/src/setTheme.js";
+import {slideShow} from "/src/slideShow.js";
 const state = {
   speed: 1000,
   type: "",
 }
-
-const setTheme = function (theme) {
-  const themed = [...document.querySelectorAll(".themed")];
-  themed.forEach((elem) => {
-    let shortList = [...elem.classList].splice(0, 2);
-    elem.className = shortList[0];
-    elem.classList.add(shortList[1]);
-    elem.classList.add(theme);
-  });
-};
 
 
 const setup = function () {
@@ -35,7 +26,6 @@ const setup = function () {
       types.forEach(elem => elem.className = "type")
       type.classList.add("underlined");
       state.type = event.target.dataset.type;
-      console.log(state);
     });
   });
 
@@ -47,7 +37,6 @@ const setup = function () {
       state.speed = event.target.dataset.speed;
       speeds.forEach((elem) => elem.style.color = "inherit")
       event.target.style.color = "red";
-      console.log(state);
     })
   })
 
@@ -57,3 +46,5 @@ const setup = function () {
 }
 
 setup();
+slideShow();
+export { state };
