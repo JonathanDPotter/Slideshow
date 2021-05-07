@@ -1,2 +1,2 @@
-# dropdowns
-practice drop-down menus
+# Slideshow
+practice drop-down menus and image slideshow
