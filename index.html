@@ -7,10 +7,11 @@
     <title>Dynamic Dropdowns</title>
     <script defer src="bundle.js"></script>
   </head>
-  <body>
+  <body class="body themed">
     <header class="head themed">
-      <h3 id="title">Dynamic Dropdowns</h3>
-      <h4 id="theme-drop">Theme</h4>
+      <h3 id="title">Image Slideshow</h3>
+      <input type="checkbox" id="theme-toggle" />
+      <label id="theme-toggle-label" for="theme-toggle">Themes</label>
       <ul id="themes">
         <li class="theme light" data-theme="light">light</li>
         <li class="theme dark" data-theme="dark">dark</li>
@@ -19,26 +20,26 @@
         <li class="theme rainbow" data-theme="rainbow">rainbow</li>
       </ul>
     </header>
+    <div id="middle">
+      <div id="sidebar" class="side themed">
+        <h4>speed</h4>
+        <ul>
+          <li class="speed" data-speed="2000">slow</li>
+          <li class="speed" data-speed="1000">medium</li>
+          <li class="speed" data-speed="500">fast</li>
+        </ul>
+      </div>
 
-    <div id="sidebar" class="side themed">
-      <h4>View Images</h4>
-      <ul>
-        <li>thumbnails</li>
-        <li>vertical</li>
-        <li>horizontal</li>
-      </ul>
+      <div id="target" class="target"></div>
     </div>
-
-    <div id="target" class="target themed"></div>
-
     <footer class="foot themed">
       <h4>Type of Image</h4>
       <ul id="types">
-        <li>robots</li>
-        <li>animals</li>
-        <li>rockets</li>
-        <li>buildings</li>
-        <li>vehicles</li>
+        <li data-type="robots" class="type">robots</li>
+        <li data-type="animals" class="type">animals</li>
+        <li data-type="rockets" class="type">rockets</li>
+        <li data-type="buildings" class="type">buildings</li>
+        <li data-type="vehicles" class="type">vehicles</li>
       </ul>
     </footer>
   </body>
