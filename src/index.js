@@ -10,15 +10,28 @@ const state = {
 let interval = "";
 let index = 0;
 
-const counter = function () {
-  index++
-  if (index === 5) {
+const counter = function (upDown = "up") {
+
+  if (upDown === "up") {
+    index++;
+  } else if (upDown === "down") {
+    index--;
+  }
+
+  if (index > 4) {
     index = 0;
   }
+  if (index < 0) {
+    index = 4;
+  }
   slideShow(index);
-}
+};
 
 const setup = function () {
+  const themeIcon = document.getElementById("theme-icon");
+  themeIcon.addEventListener("click", () => {
+    themeIcon.classList.toggle("open");
+  });
   // themes is an array of DOM elements with the theme class
   const themes = [...document.querySelectorAll(".theme")];
 
@@ -53,11 +66,25 @@ const setup = function () {
     });
   });
 
+  const prev = document.getElementById("previous");
+  console.log(prev);
+  prev.addEventListener("click", (event) => {
+    event.target.preventDefault;
+    console.log("down")
+    counter("down")
+  });
+
+  const next = document.getElementById("next");
+  next.addEventListener("click", (event) => {
+    event.target.preventDefault;
+    console.log("up")
+    counter("up")
+  });
+
   themes[0].click();
   speeds[0].click();
   types[0].click();
 };
-
 
 setup();
 slideShow(0);
