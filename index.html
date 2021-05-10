@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dynamic Dropdowns</title>
     <script defer src="bundle.js"></script>
+    <script
+      src="https://kit.fontawesome.com/49df7f434d.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="body themed">
     <header class="head themed">
-      <h3 id="title">Image Slideshow</h3>
-      <input type="checkbox" id="theme-toggle" />
-      <label id="theme-toggle-label" for="theme-toggle">Themes</label>
+      <div id="theme-icon" class="">
+        <span class="span themed"></span>
+        <span class="span themed"></span>
+        <span class="span themed"></span>
+        <span class="span themed"></span>
+      </div>
       <ul id="themes">
         <li class="theme light" data-theme="light">light</li>
         <li class="theme dark" data-theme="dark">dark</li>
@@ -29,11 +36,17 @@
           <li class="speed" data-speed="1000">fast</li>
         </ul>
       </div>
-
+      <button id="previous" class="fa-chevron-left"><i class="fas fa-chevron-left"></i></button>
       <div id="target" class="target">
         <img id="image" />
-        <div id="attribution">Icons made by <a></a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div id="attribution">
+          Icons made by <a></a> from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
       </div>
+      <button id="next" class="fa-chevron-right"><i class="fas fa-chevron-right"></i></button>
     </div>
     <footer class="foot themed">
       <h4>Type of Image</h4>
@@ -46,5 +59,4 @@
       </ul>
     </footer>
   </body>
-  <template id="side-one"></template>
 </html>
